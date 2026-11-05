@@ -1,0 +1,19 @@
+# Site settings — edit these freely.
+title: harsha mohan
+author: harsha mohan
+description: Notes on my musings...
+url: https://harshakmohan.github.io
+
+# Links shown in the footer of every page.
+links:
+  - name: Email
+    url: mailto:harshakmohan@gmail.com
+  - name: GitHub
+    url: https://github.com/harshakmohan
+
+# You shouldn't need to touch anything below this line.
+permalink: /:title/
+defaults:
+  - scope: { type: posts }
+    values: { layout: post }
+exclude: [README.md, new, Gemfile, Gemfile.lock, vendor]

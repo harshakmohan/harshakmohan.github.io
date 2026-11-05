@@ -1,0 +1,9 @@
+#!/bin/sh
+# Create a new post:  ./new "My post title"
+[ -z "$1" ] && echo 'Usage: ./new "My post title"' && exit 1
+title="$*"
+slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g')
+file="_posts/$(date +%F)-$slug.md"
+[ -e "$file" ] && echo "Already exists: $file" && exit 1
+printf -- '---\ntitle: "%s"\n---\n\n' "$(echo "$title" | sed 's/"/\\"/g')" > "$file"
+echo "Created $file"
